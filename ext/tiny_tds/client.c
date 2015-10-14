@@ -126,6 +126,8 @@ int tinytds_err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, c
 
 int tinytds_msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char *msgtext, char *srvname, char *procname, int line) {
   static char *source = "message";
+  rb_warn("tinytds_msg_handler: %s", msgtext);
+  rb_warn("tinytds_msg_handler: %d", severity);
   GET_CLIENT_USERDATA(dbproc);
   if (severity > 10) {
     // See tinytds_err_handler() for info about why we do this

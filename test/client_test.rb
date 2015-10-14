@@ -51,6 +51,10 @@ class ClientTest < TinyTds::TestCase
       end
     end
 
+    it 'that print statements do something...' do
+      @client.execute("PRINT 'Hello World'").do
+    end
+
     it 'must be able to use :host/:port connection' do
       host = ENV['TINYTDS_UNIT_HOST_TEST'] || ENV['TINYTDS_UNIT_HOST']
       port = ENV['TINYTDS_UNIT_PORT_TEST'] || ENV['TINYTDS_UNIT_PORT'] || 1433
